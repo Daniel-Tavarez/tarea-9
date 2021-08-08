@@ -13,70 +13,70 @@ namespace Tarea_9.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\_Imports.razor"
+#line 1 "C:\programacion3\T9\tarea-9\Tarea-9\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\_Imports.razor"
+#line 2 "C:\programacion3\T9\tarea-9\Tarea-9\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\_Imports.razor"
+#line 3 "C:\programacion3\T9\tarea-9\Tarea-9\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\_Imports.razor"
+#line 4 "C:\programacion3\T9\tarea-9\Tarea-9\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\_Imports.razor"
+#line 5 "C:\programacion3\T9\tarea-9\Tarea-9\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\_Imports.razor"
+#line 6 "C:\programacion3\T9\tarea-9\Tarea-9\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\_Imports.razor"
+#line 7 "C:\programacion3\T9\tarea-9\Tarea-9\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\_Imports.razor"
+#line 8 "C:\programacion3\T9\tarea-9\Tarea-9\_Imports.razor"
 using Tarea_9;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\_Imports.razor"
+#line 9 "C:\programacion3\T9\tarea-9\Tarea-9\_Imports.razor"
 using Tarea_9.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\Pages\Formulario.razor"
+#line 2 "C:\programacion3\T9\tarea-9\Tarea-9\Pages\Formulario.razor"
 using System.ComponentModel.DataAnnotations;
 
 #line default
@@ -91,9 +91,10 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 68 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\Pages\Formulario.razor"
+#line 82 "C:\programacion3\T9\tarea-9\Tarea-9\Pages\Formulario.razor"
        
     string Latitud;
+    string LATLOG;
     string Longitud;
     string PositivoCovid;
     string error = "";
@@ -183,38 +184,7 @@ using System.ComponentModel.DataAnnotations;
             ok = false;
             error = error + "\nLa direccion es obligatoria.";
         }
-        if (Latitud == null || Latitud == "")
-        {
-            ok = false;
-            error = error + "\nLa latitud es oblig\natoria.";
-        }
-        else
-        {
-            try
-            {
-                double l = double.Parse(Latitud);
-            }
-            catch
-            {
-                error = error + "\nLatitud invalida.";
-            }
-        }
-        if (Longitud == null || Longitud == "")
-        {
-            ok = false;
-            error = error + "\nLa longitud es obligatoria.";
-        }
-        else
-        {
-            try
-            {
-                double l = double.Parse(Latitud);
-            }
-            catch
-            {
-                error = error + "\nLongitud invalida.";
-            }
-        }
+
         if (PositivoCovid == null || PositivoCovid == "default")
         {
             ok = false;
@@ -224,6 +194,11 @@ using System.ComponentModel.DataAnnotations;
         {
             ok = false;
             error = error + "\nLa justificacion es obligatoria.";
+        }
+        if (LATLOG == "")
+        {
+            ok = false;
+            error = error + "\nFavor active su ubicación.";
         }
         if (ok)
         {
@@ -236,6 +211,7 @@ using System.ComponentModel.DataAnnotations;
         }
     void getCoordenadas()
     {
+        
         //hace la cosa para conseguir las coordenadas
     }
     class Vacunado
@@ -249,6 +225,7 @@ using System.ComponentModel.DataAnnotations;
         public string Sangre;
         public string Provincia;
         public string Direccion;
+        public byte LTL;
         public double Latitud;
         public double Longitud;
         public int PositivoCovid;

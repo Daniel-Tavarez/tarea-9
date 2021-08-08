@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\Tarea-9.csproj": {}
+    "C:\\programacion3\\T9\\tarea-9\\Tarea-9\\Tarea-9.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\Tarea-9.csproj": {
+    "C:\\programacion3\\T9\\tarea-9\\Tarea-9\\Tarea-9.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\Tarea-9.csproj",
+        "projectUniqueName": "C:\\programacion3\\T9\\tarea-9\\Tarea-9\\Tarea-9.csproj",
         "projectName": "Tarea-9",
-        "projectPath": "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\Tarea-9.csproj",
-        "packagesPath": "C:\\Users\\ESTUDIANTE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\obj\\",
+        "projectPath": "C:\\programacion3\\T9\\tarea-9\\Tarea-9\\Tarea-9.csproj",
+        "packagesPath": "C:\\Users\\robin\\.nuget\\packages\\",
+        "outputPath": "C:\\programacion3\\T9\\tarea-9\\Tarea-9\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ESTUDIANTE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +43,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "BrowserInterop": {
+              "target": "Package",
+              "version": "[1.1.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

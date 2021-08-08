@@ -1,8 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "iPnSPkHHKrV7bodSdld94NyQZ3hiuJFtCnlZ8ERBbDLdqsgLpJrM25akz95hX0PsCOcuh4O2REC6jURNxBG7Ow==",
+  "dgSpecHash": "+J3t3VXoi9v9bA32k7xF4mGEnh2JiD6zVJsWF9rfQyZPxxiPb+xTRtfosP4cycN2Jter4mpetMmQb1UGYvn7hA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\Tarea-9.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\programacion3\\T9\\tarea-9\\Tarea-9\\Tarea-9.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\robin\\.nuget\\packages\\browserinterop\\1.1.1\\browserinterop.1.1.1.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.7\\microsoft.aspnetcore.authorization.3.1.7.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.7\\microsoft.aspnetcore.components.3.1.7.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\3.1.7\\microsoft.aspnetcore.components.analyzers.3.1.7.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\microsoft.aspnetcore.metadata\\3.1.7\\microsoft.aspnetcore.metadata.3.1.7.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.7\\microsoft.extensions.dependencyinjection.abstractions.3.1.7.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.7\\microsoft.extensions.logging.abstractions.3.1.7.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\microsoft.extensions.options\\3.1.7\\microsoft.extensions.options.3.1.7.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.7\\microsoft.extensions.primitives.3.1.7.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\microsoft.jsinterop\\3.1.7\\microsoft.jsinterop.3.1.7.nupkg.sha512"
+  ],
   "logs": []
 }
