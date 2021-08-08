@@ -82,6 +82,13 @@ using System.ComponentModel.DataAnnotations;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\Pages\Formulario.razor"
+using System.Data.SQLite;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/formulario")]
     public partial class Formulario : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -91,14 +98,16 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 68 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\Pages\Formulario.razor"
+#line 75 "C:\Users\ESTUDIANTE\Desktop\tareas itla\prog 3\tarea-9\Tarea-9\Pages\Formulario.razor"
        
     string Latitud;
     string Longitud;
     string PositivoCovid;
     string error = "";
     bool ok = true;
+    bool hecho = false;
     Vacunado vacunado = new Vacunado();
+    string source = "Data Source = Data/DB.db";
     void Validar()
     {
         error = "";
@@ -109,6 +118,21 @@ using System.ComponentModel.DataAnnotations;
             if (vacunado.Cedula.Length == 11)
             {
                 Int64 nCedula = Int64.Parse(vacunado.Cedula);
+                using (var connection = new SQLiteConnection(source))
+                {
+                    using (var command = new SQLiteCommand("select *from CedulasAgregadas where cedula = '"+vacunado.Cedula+"'", connection))
+                    {
+                        command.Connection.Open();
+                        SQLiteDataReader rows = command.ExecuteReader();
+                        while (rows.Read())
+                        {
+                            ok = false;
+                            error = error + "Esta cedula ya está agregada.";
+                            break;
+                        }
+
+                    }
+                }
             }
             else
             {
@@ -225,15 +249,30 @@ using System.ComponentModel.DataAnnotations;
             ok = false;
             error = error + "\nLa justificacion es obligatoria.";
         }
+
         if (ok)
         {
-            mandarCorreo();
+            todoCorrecto();
         }
+
+    }
+    void todoCorrecto()
+    {
+        using (var connection = new SQLiteConnection(source))
+        {
+            using (var command = new SQLiteCommand($"insert into CedulasAgregadas values ('{vacunado.Cedula}')", connection))
+            {
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+        mandarCorreo();
+        hecho = true;
     }
     void mandarCorreo()
-        {
-            //manda el correo
-        }
+    {
+        //manda el correo
+    }
     void getCoordenadas()
     {
         //hace la cosa para conseguir las coordenadas

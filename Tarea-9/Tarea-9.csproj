@@ -5,4 +5,8 @@
     <RootNamespace>Tarea_9</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite" Version="1.0.114.4" />
+  </ItemGroup>
+
 </Project>
