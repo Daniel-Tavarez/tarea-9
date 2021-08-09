@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DanielJoseTavarezAlv\\Desktop\\ITLA\\Carpeta_de_tareas_2021_C2\\Programación lll\\Tarea 9\\tarea-9\\Tarea-9\\Tarea-9.csproj": {}
+    "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\Tarea-9.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DanielJoseTavarezAlv\\Desktop\\ITLA\\Carpeta_de_tareas_2021_C2\\Programación lll\\Tarea 9\\tarea-9\\Tarea-9\\Tarea-9.csproj": {
+    "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\Tarea-9.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DanielJoseTavarezAlv\\Desktop\\ITLA\\Carpeta_de_tareas_2021_C2\\Programación lll\\Tarea 9\\tarea-9\\Tarea-9\\Tarea-9.csproj",
+        "projectUniqueName": "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\Tarea-9.csproj",
         "projectName": "Tarea-9",
-        "projectPath": "C:\\Users\\DanielJoseTavarezAlv\\Desktop\\ITLA\\Carpeta_de_tareas_2021_C2\\Programación lll\\Tarea 9\\tarea-9\\Tarea-9\\Tarea-9.csproj",
-        "packagesPath": "C:\\Users\\DanielJoseTavarezAlv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DanielJoseTavarezAlv\\Desktop\\ITLA\\Carpeta_de_tareas_2021_C2\\Programación lll\\Tarea 9\\tarea-9\\Tarea-9\\obj\\",
+        "projectPath": "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\Tarea-9.csproj",
+        "packagesPath": "C:\\Users\\ESTUDIANTE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ESTUDIANTE\\Desktop\\tareas itla\\prog 3\\tarea-9\\Tarea-9\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DanielJoseTavarezAlv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ESTUDIANTE\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.114.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

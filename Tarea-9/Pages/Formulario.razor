@@ -1,0 +1,269 @@
+﻿@page "/formulario"
+@using System.ComponentModel.DataAnnotations;
+@using System.Data.SQLite;
+@if(hecho){
+<h3>Muchas gracias por llenar el fomulario!! le estaremos enviando un correo con sus datos</h3>
+            }
+            else
+            {
+
+
+<h3>Formulario</h3>
+
+<label style="font-size:130%">Cedula: </label>
+<input type="text" @bind="@vacunado.Cedula" style="height:4%; width:100%;" />
+<br />
+<label style="font-size:130%">Nombre: </label>
+<input type="text" @bind="@vacunado.Nombre" style="height:4%; width:100%;" />
+<br />
+<label style="font-size:130%">Apellidos: </label>
+<input type="text" @bind="@vacunado.Apellidos" style="height:4%; width:100%;" />
+<br />
+<label style="font-size:130%">Telefono: </label>
+<input type="text" @bind="@vacunado.Telefono" style="height:4%; width:100%;" />
+<br />
+<label style="font-size:130%">Correo: </label>
+<input type="text" @bind="@vacunado.Correo" style="height:4%; width:100%;" />
+<br />
+<label style="font-size:130%">Fecha de nacimiento: </label>
+<input type="date" @bind="@vacunado.Fnacimiento" min="1921-01-01" style="height:4%; width:100%;" />
+<br />
+<label style="font-size:130%">Tipo de sangre: </label>
+<select @bind="@vacunado.Sangre" style="height:4%; width:100%;">
+    <option value="0">-- Seleccione un tipo de sangre por favor --</option>
+    <option value="O negativo">O negativo</option>
+    <option value="O positivo">O positivo</option>
+    <option value="A negativo">A negativo</option>
+    <option value="A positivo">A positivo</option>
+    <option value="B negativo">B negativo</option>
+    <option value="B positivo">B positivo</option>
+    <option value="AB negativo">AB negativo</option>
+    <option value="AB positivo">AB positivo</option>
+</select>
+<br />
+
+<label style="font-size:130%">Provincia: </label>
+<input type="text" @bind="@vacunado.Provincia" style="height:4%; width:100%;" />
+<br />
+<label style="font-size:130%">Direccion: </label>
+<input type="text" @bind="@vacunado.Direccion" style="height:4%; width:100%;" />
+<br />
+<label style="font-size:130%">Latitud: </label>
+<input type="text" @bind="@Latitud" style="height:4%; width:100%;" />
+<br />
+<label style="font-size:130%">Longitud: </label>
+<input type="text" @bind="@Longitud" style="height:4%; width:100%;" />
+<br />
+<br />
+<button @onclick="getCoordenadas" class="btn btn-primary">Obtener coordenadas automaticamente</button>
+<br />
+<label style="font-size:130%">Le ha dado covid?: </label>
+<select @bind="@PositivoCovid" style="height:4%; width:100%;">
+    <option value="default">-- Seleccione una respuesta por favor --</option>
+    <option value="0">No</option>
+    <option value="1">Sí</option>
+</select>
+<br />
+<label style="font-size:130%">Por qué deben vacunarlo en su casa?: </label>
+<input type="text" @bind="@vacunado.Justificacion" style="height:4%; width:100%;" />
+<br />
+<p style="color:red; font-size:15px;">@error</p>
+<button type="submit" class="btn btn-primary" @onclick="Validar">Submit</button>
+<br />
+<br />
+}
+@code {
+    string Latitud;
+    string Longitud;
+    string PositivoCovid;
+    string error = "";
+    bool ok = true;
+    bool hecho = false;
+    Vacunado vacunado = new Vacunado();
+    string source = "Data Source = Data/DB.db";
+    void Validar()
+    {
+        error = "";
+        ok = true;
+
+        try
+        {
+            if (vacunado.Cedula.Length == 11)
+            {
+                Int64 nCedula = Int64.Parse(vacunado.Cedula);
+                using (var connection = new SQLiteConnection(source))
+                {
+                    using (var command = new SQLiteCommand("select *from CedulasAgregadas where cedula = '"+vacunado.Cedula+"'", connection))
+                    {
+                        command.Connection.Open();
+                        SQLiteDataReader rows = command.ExecuteReader();
+                        while (rows.Read())
+                        {
+                            ok = false;
+                            error = error + "Esta cedula ya está agregada.";
+                            break;
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                ok = false;
+                error = error + "La cedula debe tener 11 digitos.";
+            }
+        }
+        catch
+        {
+            ok = false;
+            error = error + "La cedula debe de ser solo numeros.";
+        }
+        if (vacunado.Nombre == null || vacunado.Nombre == "")
+        {
+            ok = false;
+            error = error + "\nEl nombre es obligatorio.";
+        }
+        if (vacunado.Apellidos == null || vacunado.Apellidos == "")
+        {
+            ok = false;
+            error = error + "\nLos apellidos son obligatorios.";
+        }
+        try
+        {
+            if (vacunado.Telefono.Length == 10)
+            {
+                Int64 nTelefono = Int64.Parse(vacunado.Telefono);
+            }
+            else
+            {
+                ok = false;
+                error = error + "\nEl telefono debe tener 10 caracteres (xxx-xxx-xxxx).";
+            }
+        }
+        catch
+        {
+            ok = false;
+            error = error + "\nEl telefono debe de ser solo numeros.";
+        }
+
+        if (vacunado.Correo != null)
+        {
+            var foo = new EmailAddressAttribute();
+            if (!foo.IsValid(vacunado.Correo))
+            {
+                ok = false;
+                error = error + "\nEl correo no es valido.";
+            }
+        }
+        else
+        {
+            ok = false;
+            error = error + "\nEl correo es obligatorio.";
+        }
+        if (vacunado.Fnacimiento == null)
+        {
+            ok = false;
+            error = error + "\nLa fecha de nacimiento es obligatoria.";
+        }
+        if (vacunado.Sangre == null || vacunado.Sangre == "0")
+        {
+            ok = false;
+            error = error + "\nEl tipo de sangre es obligatorio.";
+        }
+        if (vacunado.Provincia == null || vacunado.Provincia == "")
+        {
+            ok = false;
+            error = error + "\nLa provincia es obligatoria.";
+        }
+        if (vacunado.Direccion == null || vacunado.Direccion == "")
+        {
+            ok = false;
+            error = error + "\nLa direccion es obligatoria.";
+        }
+        if (Latitud == null || Latitud == "")
+        {
+            ok = false;
+            error = error + "\nLa latitud es oblig\natoria.";
+        }
+        else
+        {
+            try
+            {
+                double l = double.Parse(Latitud);
+            }
+            catch
+            {
+                error = error + "\nLatitud invalida.";
+            }
+        }
+        if (Longitud == null || Longitud == "")
+        {
+            ok = false;
+            error = error + "\nLa longitud es obligatoria.";
+        }
+        else
+        {
+            try
+            {
+                double l = double.Parse(Latitud);
+            }
+            catch
+            {
+                error = error + "\nLongitud invalida.";
+            }
+        }
+        if (PositivoCovid == null || PositivoCovid == "default")
+        {
+            ok = false;
+            error = error + "\nSeleccione si le ha dado covid o no.";
+        }
+        if (vacunado.Justificacion == null || vacunado.Justificacion == "")
+        {
+            ok = false;
+            error = error + "\nLa justificacion es obligatoria.";
+        }
+
+        if (ok)
+        {
+            todoCorrecto();
+        }
+
+    }
+    void todoCorrecto()
+    {
+        using (var connection = new SQLiteConnection(source))
+        {
+            using (var command = new SQLiteCommand($"insert into CedulasAgregadas values ('{vacunado.Cedula}')", connection))
+            {
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+        mandarCorreo();
+        hecho = true;
+    }
+    void mandarCorreo()
+    {
+        //manda el correo
+    }
+    void getCoordenadas()
+    {
+        //hace la cosa para conseguir las coordenadas
+    }
+    class Vacunado
+    {
+        public string Cedula;
+        public string Nombre;
+        public string Apellidos;
+        public string Telefono;
+        public string Correo;
+        public DateTime Fnacimiento = DateTime.Now;
+        public string Sangre;
+        public string Provincia;
+        public string Direccion;
+        public double Latitud;
+        public double Longitud;
+        public int PositivoCovid;
+        public string Justificacion;
+    }
+}
