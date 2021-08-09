@@ -114,3 +114,5 @@ C:\programacion3\T9\tarea-9\Tarea-9\bin\Debug\netcoreapp3.1\Microsoft.Extensions
 C:\programacion3\T9\tarea-9\Tarea-9\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\programacion3\T9\tarea-9\Tarea-9\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\programacion3\T9\tarea-9\Tarea-9\bin\Debug\netcoreapp3.1\Microsoft.JSInterop.dll
+C:\programacion3\T9\tarea-9\Tarea-9\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\AcercaDe.razor.g.cs
+C:\programacion3\T9\tarea-9\Tarea-9\obj\Debug\netcoreapp3.1\Razor\Pages\AcercaDe.razor.g.cs

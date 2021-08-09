@@ -91,7 +91,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 82 "C:\programacion3\T9\tarea-9\Tarea-9\Pages\Formulario.razor"
+#line 98 "C:\programacion3\T9\tarea-9\Tarea-9\Pages\Formulario.razor"
        
     string Latitud;
     string LATLOG;
